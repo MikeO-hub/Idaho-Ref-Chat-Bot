@@ -1,7 +1,7 @@
 flowchart TB
     A[Chatbot] -->|"initial input"| 01_Animals(01_Animals) & 02_Mail & 03_Parking & 04_Stairs & 05_MoveOutTime & 06_LeaseViolation & 07_ShutoffsAndConditions & 08_LEAA & 09_Caregiver & 10_Communication & 11_ApplicationDenials & 12_Ramps & 13_Asthma & Bankruptcy & Covid & Criminal/Traffic & Default_Fallback_Intent & Default_Welcome_Intent & Do_I_have_to_pay_a_retainer & Domestic_Violence & Family & Family_Law_Forms & Farmworkers & Gaurdian_Conservator_Forms & Gaurdianships/Conservatorships & health_and_benefits & Homeownership_and_foreclosure & Housing_Forms & How_to_Access & Immigration & Juvenile & LGBTQ & money_and_debt & Native_American & Other_States & OtherLanguages & Rental_Housing & Seniors/Elder & Small_Claims & Social_Security & Tell_me_about_Idaho_Legal_Aid_Services & Utilities & Veterans & Voting_Rights & WantApplicationInfo & What_Issues_and_Who_Help & WillsTrustsEstates & Work
 	
-	11_ApplicationDenials --> 11_ApplicationDenialsRight{"It sounds like you are having issues with\n rental applications being denied.\n Did I get that right?"}
+    11_ApplicationDenials --> 11_ApplicationDenialsRight{"It sounds like you are having issues with\n rental applications being denied.\n Did I get that right?"}
     11_ApplicationDenialsRight --> |Yes| ApplicationDenials-yes{"Ok great. \nNext I have a few questions I need to ask just to make sure\n I understand your situation and that this tool is right for you.\n\n First,\n Do you have a physical or mental impairment\n (such as cerebral palsy, autism, epilepsy, cancer, diabetes, heart disease, hearing or sight impairment, mental illness, etc.)\n that substantially limits one or more of your major life activities\n (for example: walking, speaking, hearing, seeing, breathing, working, learning, or caring for yourself)?"}
     11_ApplicationDenialsRight --> |No| ApplicationDenials-no["Sorry about that.\n Can you try to describe your issue in a different way? \nI am best able to understand short sentences and phrases."]
     11_ApplicationDenialsRight --> |Fallback| ApplicationDenials-fallback[Sorry, I don't understand.\n Did I correctly identify your issue as related to\n your applications for housing being denied?\n Please click either 'yes' or 'no' below.] --> 11_ApplicationDenialsRight
@@ -180,8 +180,8 @@ flowchart TB
     Voting_RightsRight --> |Yes| Voting_Rights-yes["...custom payload\n with options..."]:::cust_ops
     Voting_RightsRight --> |No| Voting_Rights-no["Sorry about that. \n Can you describe your issue in a different way?"]
     Voting_RightsRight --> |Fallback| Voting_Rights-fallback["...custom payload\n with options..."]:::cust_ops
-	WantApplicationInfo --> WantApplicationInfoRight(("nothing here")):::nothing
-	WantApplicationInfoRight --> |Yes| WantApplicationInfo-yes["...custom payload\n with options..."]:::cust_ops
+    WantApplicationInfo --> WantApplicationInfoRight(("nothing here")):::nothing
+    WantApplicationInfoRight --> |Yes| WantApplicationInfo-yes["...custom payload\n with options..."]:::cust_ops
     WantApplicationInfoRight --> |No| WantApplicationInfo-no["Ok, if you have any more questions, go ahead and ask.\n I am here to help!"]
     What_Issues_and_Who_Help --> What_Issues_and_Who_HelpRight["We are a legal aid program\n that helps Idahoans with low incomes\n handle many different kinds of civil legal issues!\n We may be able to help with issues related to\n rental housing or housing issues for homeowners like foreclosure.\n We also help with problems or questions related to\n benefits like SNAP (food stamps), TANF or SSI, and issues with debt collectors.\n We also have special programs for\n survivors or victims of domestic violence or sexual assault,\n migrant farmworkers, Native Americans, juveniles, and veterans.\n\n You can ask me questions about any of these kinds of issues\n or just describe what kind of issue you're having\n and I will try to help."]:::hasEntity
     WillsTrustsEstates --> WillsTrustsEstatesRight{"It sounds like your legal issue is related to\n probate issues, wills, trusts, or estates.\n Is that correct?"}:::hasEntity
@@ -196,7 +196,7 @@ flowchart TB
 
 
 
-	classDef hasEntity fill:#ffc
+    classDef hasEntity fill:#ffc
     classDef cust_ops fill:#6fc
     classDef ff_webhook fill:#0cf
     classDef formlink fill:#fc9
