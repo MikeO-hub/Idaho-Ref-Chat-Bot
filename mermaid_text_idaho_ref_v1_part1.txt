@@ -109,7 +109,7 @@ flowchart TB
     06_LeaseViolationRight --> |Yes| LeaseViolation-yes{"Ok great. \nNext I have a few questions I need to ask just to make sure\n I understand your situation and that this tool is right for you.\n First, are you renting?"}
     06_LeaseViolationRight --> |No| LeaseViolation-no["Sorry about that.\n Can you try to describe your issue in a different way? \nI am best able to understand short sentences and phrases."]
     06_LeaseViolationRight --> |Fallback| LeaseViolation-fallback["Sorry, I don't understand. \nDid I correctly identify your issue as \nrelated to\n a lease violation?\nPlease click either 'yes' or 'no' below."] --> 06_LeaseViolationRight
-	LeaseViolation-yes --> |Yes| LeaseViolation-yes-yes{"Do you have a physical or mental impairment\n (such as cerebral palsy, autism, epilepsy, cancer, diabetes, heart disease, hearing or sight impairment, mental illness, etc.)\n that substantially limits one or more of your major life activities\n (for example: walking, speaking, hearing, seeing, breathing, working, learning, or caring for yourself)?"}
+    LeaseViolation-yes --> |Yes| LeaseViolation-yes-yes{"Do you have a physical or mental impairment\n (such as cerebral palsy, autism, epilepsy, cancer, diabetes, heart disease, hearing or sight impairment, mental illness, etc.)\n that substantially limits one or more of your major life activities\n (for example: walking, speaking, hearing, seeing, breathing, working, learning, or caring for yourself)?"}
     LeaseViolation-yes --> |No| LeaseViolation-yes-no["With the information you've given me,\n I'm not sure I have the right forms or answers for you.\nIf you still have legal questions, you can call \nIdaho Legal Aids free legal advice lines at\n208-746-7541"]
     LeaseViolation-yes --> |Fallback| LeaseViolation-yes-fallback["Sorry, I didn't understand that.\n Please click either 'yes' or 'no'."] --> LeaseViolation-yes
     LeaseViolation-yes-yes --> |Yes| LeaseViolation-yes-yes-yes{"Does your housing provider or landlord rent out 4 or more units\n or use a property management company?"}:::cust_ops
@@ -213,7 +213,7 @@ flowchart TB
    
    
     
-	classDef hasEntity fill:#ffc
+    classDef hasEntity fill:#ffc
     classDef cust_ops fill:#6fc
     classDef ff_webhook fill:#0cf
     classDef formlink fill:#fc9
