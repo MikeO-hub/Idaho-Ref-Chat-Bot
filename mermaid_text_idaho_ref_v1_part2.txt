@@ -1,0 +1,203 @@
+flowchart TB
+    A[Christmas] -->|"initial input"| 01_Animals(01_Animals) & 02_Mail & 03_Parking & 04_Stairs & 05_MoveOutTime & 06_LeaseViolation & 07_ShutoffsAndConditions & 08_LEAA & 09_Caregiver & 10_Communication & 11_ApplicationDenials & 12_Ramps & 13_Asthma & Bankruptcy & Covid & Criminal/Traffic & Default_Fallback_Intent & Default_Welcome_Intent & Do_I_have_to_pay_a_retainer & Domestic_Violence & Family & Family_Law_Forms & Farmworkers & Gaurdian_Conservator_Forms & Gaurdianships/Conservatorships & health_and_benefits & Homeownership_and_foreclosure & Housing_Forms & How_to_Access & Immigration & Juvenile & LGBTQ & money_and_debt & Native_American & Other_States & OtherLanguages & Rental_Housing & Seniors/Elder & Small_Claims & Social_Security & Tell_me_about_Idaho_Legal_Aid_Services & Utilities & Veterans & Voting_Rights & WantApplicationInfo & What_Issues_and_Who_Help & WillsTrustsEstates & Work
+	
+	11_ApplicationDenials --> 11_ApplicationDenialsRight{"It sounds like you are having issues with\n rental applications being denied.\n Did I get that right?"}
+    11_ApplicationDenialsRight --> |Yes| ApplicationDenials-yes{"Ok great. \nNext I have a few questions I need to ask just to make sure\n I understand your situation and that this tool is right for you.\n\n First,\n Do you have a physical or mental impairment\n (such as cerebral palsy, autism, epilepsy, cancer, diabetes, heart disease, hearing or sight impairment, mental illness, etc.)\n that substantially limits one or more of your major life activities\n (for example: walking, speaking, hearing, seeing, breathing, working, learning, or caring for yourself)?"}
+    11_ApplicationDenialsRight --> |No| ApplicationDenials-no["Sorry about that.\n Can you try to describe your issue in a different way? \nI am best able to understand short sentences and phrases."]
+    11_ApplicationDenialsRight --> |Fallback| ApplicationDenials-fallback[Sorry, I don't understand.\n Did I correctly identify your issue as related to\n your applications for housing being denied?\n Please click either 'yes' or 'no' below.] --> 11_ApplicationDenialsRight
+    ApplicationDenials-yes --> |Yes| ApplicationDenials-yes-yes{"Does your housing provider or landlord rent out 4 or more units\n or use a property management company?"}:::cust_ops
+    ApplicationDenials-yes --> |No| ApplicationDenials-yes-no["With the information you've given me,\n I'm not sure I have the right forms or answers for you.\nIf you still have legal questions, you can call \nIdaho Legal Aids free legal advice lines at\n208-746-7541"]
+    ApplicationDenials-yes --> |Fallback| ApplicationDenials-yes-fallback["Sorry, I didn't understand that.\n Please click either 'yes' or 'no'."] --> ApplicationDenials-yes 
+    ApplicationDenials-yes-yes --> |Yes| ApplicationDenials-yes-yes-yes{"Are you having issues with your rental applications\n because of your disability?"}
+    ApplicationDenials-yes-yes --> |No| ApplicationDenials-yes-yes-no["With the information you've given me,\n I'm not sure I have the right forms or answers for you.\nIf you still have legal questions, you can call \nIdaho Legal Aids free legal advice lines at\n208-746-7541"]
+    ApplicationDenials-yes-yes --> |Fallback| ApplicationDenials-yes-yes-fallback["Sorry, I didn't understand that.\n Please click either 'yes' or 'no'."] --> ApplicationDenials-yes-yes
+    ApplicationDenials-yes-yes-yes --> |Yes| ApplicationDenials-yes-yes-yes-yes{"Can you get a letter from a qualified professional\n (such as a doctor or counselor) familiar with your disability\n stating that you need an accommodation related to your rental applications\n because of your disability?"}
+    ApplicationDenials-yes-yes-yes --> |No| ApplicationDenials-yes-yes-yes-no["With the information you've given me,\n I'm not sure I have the right forms or answers for you.\nIf you still have legal questions, you can call \nIdaho Legal Aids free legal advice lines at\n208-746-7541"]
+    ApplicationDenials-yes-yes-yes --> |Fallback| ApplicationDenials-yes-yes-yes-fallback["Sorry, I didn't understand that.\n Please click either 'yes' or 'no'."] --> ApplicationDenials-yes-yes-yes
+    ApplicationDenials-yes-yes-yes-yes --> |Yes| ApplicationDenials-yes-yes-yes-yes-yes{"Great. I was able to identify the form you needed.\n You will be able to download your form in Word or Adobe PDF format, or email it to yourself.\n Click #quot;Ok, Let's Finish the Form!#quot; if you're ready, or\n #quot;Start Over#quot; if you want to go back to the beginning."}:::cust_ops
+    ApplicationDenials-yes-yes-yes-yes --> |No| ApplicationDenials-yes-yes-yes-yes-no["With the information you've given me,\n I'm not sure I have the right forms or answers for you.\nIf you still have legal questions, you can call \nIdaho Legal Aids free legal advice lines at\n208-746-7541"]
+    ApplicationDenials-yes-yes-yes-yes --> |Fallback| ApplicationDenials-yes-yes-yes-yes-fallback["Sorry, I didn't understand that.\n Please click either 'yes' or 'no'."] --> ApplicationDenials-yes-yes-yes-yes
+    ApplicationDenials-yes-yes-yes-yes-yes --> |Custom| ApplicationDenials-yes-yes-yes-yes-yes-custom(("Nothing here")):::nothing
+    ApplicationDenials-yes-yes-yes-yes-yes --> |Cancel| ApplicationDenials-yes-yes-yes-yes-yes-cancel["Ok! Go ahead and describe the issue you would like help with."]
+    12_Ramps --> 12_RampsRight{"It sounds like your issue is related to\n physical change(s) needed to your rental or apartment.\n Did I get that right?"}
+    12_RampsRight --> |Yes| Ramps-yes{"Ok great. \nNext I have a few questions I need to ask just to make sure\n I understand your situation and that this tool is right for you.\n First, are you renting?"}
+    12_RampsRight --> |No| Ramps-no["Sorry about that.\n Can you try to describe your issue in a different way? \nI am best able to understand short sentences and phrases."]
+    12_RampsRight --> |Fallback| Ramps-fallback["Sorry, I don't understand.\n Did I correctly identify your issue as related to\n ramps or other physical modifications needed for your house or apartment?\n Please click either 'yes' or 'no' below."] --> 12_RampsRight
+    Ramps-yes --> |Yes| Ramps-yes-yes{"Do you have a physical or mental impairment\n (such as cerebral palsy, autism, epilepsy, cancer, diabetes, heart disease, hearing or sight impairment, mental illness, etc.)\n that substantially limits one or more of your major life activities\n (for example: walking, speaking, hearing, seeing, breathing, working, learning, or caring for yourself)?"} 
+    Ramps-yes --> |No| Ramps-yes-no["With the information you've given me,\n I'm not sure I have the right forms or answers for you.\nIf you still have legal questions, you can call \nIdaho Legal Aids free legal advice lines at\n208-746-7541"]
+    Ramps-yes --> |Fallback| Ramps-yes-fallback["Sorry, I didn't understand that.\n Please click either 'yes' or 'no'."] --> Ramps-yes
+    Ramps-yes-yes --> |Yes| Ramps-yes-yes-yes{"Does your housing provider or landlord rent out 4 or more units\n or use a property management company?"}:::cust_ops
+    Ramps-yes-yes --> |No| Ramps-yes-yes-no["With the information you've given me,\n I'm not sure I have the right forms or answers for you.\nIf you still have legal questions, you can call \nIdaho Legal Aids free legal advice lines at\n208-746-7541"]
+    Ramps-yes-yes --> |Fallback| Ramps-yes-yes-fallback["Sorry, I didn't understand that.\n Please click either 'yes' or 'no'."] --> Ramps-yes-yes
+    Ramps-yes-yes-yes --> |Yes| Ramps-yes-yes-yes-yes{"Do you need physical change(s) to your rental/apartment\n because of your disability?"}
+    Ramps-yes-yes-yes --> |No| Ramps-yes-yes-yes-no["With the information you've given me,\n I'm not sure I have the right forms or answers for you.\nIf you still have legal questions, you can call \nIdaho Legal Aids free legal advice lines at\n208-746-7541"]
+    Ramps-yes-yes-yes --> |Fallback| Ramps-yes-yes-yes-fallback["Sorry, I didn't understand that.\n Please click either 'yes' or 'no'."] --> Ramps-yes-yes-yes
+    Ramps-yes-yes-yes-yes --> |Yes| Ramps-yes-yes-yes-yes-yes{"Can you get a letter from a qualified professional\n (such as a doctor or counselor) familiar with your disability\n stating that you need physical changes to your apartment/rental\n due to your disability?"}
+    Ramps-yes-yes-yes-yes --> |No| Ramps-yes-yes-yes-yes-no["With the information you've given me,\n I'm not sure I have the right forms or answers for you.\nIf you still have legal questions, you can call \nIdaho Legal Aids free legal advice lines at\n208-746-7541"]
+    Ramps-yes-yes-yes-yes --> |Fallback| Ramps-yes-yes-yes-yes-fallback["Sorry, I didn't understand that.\n Please click either 'yes' or 'no'."] --> Ramps-yes-yes-yes-yes
+    Ramps-yes-yes-yes-yes-yes --> |Yes| Ramps-yes-yes-yes-yes-yes-yes{"Great. I was able to identify the form you needed.\n You will be able to download your form in Word or Adobe PDF format, or email it to yourself.\n Click #quot;Ok, Let's Complete My Form!#quot; if you're ready, or\n #quot;Start Over#quot; if you want to go back to the beginning."}:::cust_ops
+    Ramps-yes-yes-yes-yes-yes --> |No| Ramps-yes-yes-yes-yes-yes-no["With the information you've given me,\n I'm not sure I have the right forms or answers for you.\nIf you still have legal questions, you can call \nIdaho Legal Aids free legal advice lines at\n208-746-7541"]
+    Ramps-yes-yes-yes-yes-yes --> |Fallback| Ramps-yes-yes-yes-yes-yes-fallback["Sorry, I didn't understand that.\n Please click either 'yes' or 'no'."] --> Ramps-yes-yes-yes-yes-yes
+    Ramps-yes-yes-yes-yes-yes-yes --> |Custom| Ramps-yes-yes-yes-yes-yes-yes-custom(("Nothing here")):::nothing
+    Ramps-yes-yes-yes-yes-yes-yes --> |Cancel| Ramps-yes-yes-yes-yes-yes-yes-cancel["Ok! Go ahead and describe the issue you would like help with."]   
+    13_Asthma --> 13_AsthmaRight{"It sounds like you are having an issue related to\n asthma, breathing difficulties or sensitivity to smoke or sprayed chemicals.\n Did I get that right?"}
+    13_AsthmaRight --> |Yes| Asthma-yes{"Ok great. \nNext I have a few questions I need to ask just to make sure\n I understand your situation and that this tool is right for you.\n First, are you renting?"}
+    13_AsthmaRight --> |No| Asthma-no["Sorry about that.\n Can you try to describe your issue in a different way? \nI am best able to understand short sentences and phrases."]
+    13_AsthmaRight --> |Fallback| Asthma-fallback["Sorry, I don't understand.\n Did I correctly identify your issue as related to\n asthma?\n Please click either 'yes' or 'no' below."] --> 13_AsthmaRight
+    Asthma-yes --> |Yes| Asthma-yes-yes{"Do you have a physical or mental impairment\n (such as cerebral palsy, autism, epilepsy, cancer, diabetes, heart disease, hearing or sight impairment, mental illness, etc.)\n that substantially limits one or more of your major life activities\n (for example: walking, speaking, hearing, seeing, breathing, working, learning, or caring for yourself)?"}
+    Asthma-yes --> |No| Asthma-yes-no["With the information you've given me,\n I'm not sure I have the right forms or answers for you.\nIf you still have legal questions, you can call \nIdaho Legal Aids free legal advice lines at\n208-746-7541"]
+    Asthma-yes --> |Fallback| Asthma-yes-fallback["Sorry, I didn't understand that.\n Please click either 'yes' or 'no'."] --> Asthma-yes
+    Asthma-yes-yes --> |Yes| Asthma-yes-yes-yes{"Does your housing provider or landlord rent out 4 or more units\n or use a property management company?"}:::cust_ops
+    Asthma-yes-yes --> |No| Asthma-yes-yes-no["With the information you've given me,\n I'm not sure I have the right forms or answers for you.\nIf you still have legal questions, you can call \nIdaho Legal Aids free legal advice lines at\n208-746-7541"]
+    Asthma-yes-yes --> |Fallback| Asthma-yes-yes-fallback["Sorry, I didn't understand that.\n Please click either 'yes' or 'no'."] --> Asthma-yes-yes
+    Asthma-yes-yes-yes --> |Yes| Asthma-yes-yes-yes-yes{"Are you having issues with smoke, spraying, or other aerosols\n because of your "}
+    Asthma-yes-yes-yes --> |No| Asthma-yes-yes-yes-no["With the information you've given me,\n I'm not sure I have the right forms or answers for you.\nIf you still have legal questions, you can call \nIdaho Legal Aids free legal advice lines at\n208-746-7541"]
+    Asthma-yes-yes-yes --> |Fallback| Asthma-yes-yes-yes-fallback["Sorry, I didn't understand that.\n Please click either 'yes' or 'no'."] --> Asthma-yes-yes-yes
+    Asthma-yes-yes-yes-yes --> |Yes| Asthma-yes-yes-yes-yes-yes{"Can you get a letter from a qualified professional\n (such as a doctor or counselor) familiar with your disability\n stating that you cannot be exposed to smoke, spraying, or aerosols\n because of your disability?"}
+    Asthma-yes-yes-yes-yes --> |No| Asthma-yes-yes-yes-yes-no["With the information you've given me,\n I'm not sure I have the right forms or answers for you.\nIf you still have legal questions, you can call \nIdaho Legal Aids free legal advice lines at\n208-746-7541"]
+    Asthma-yes-yes-yes-yes --> |Fallback| Asthma-yes-yes-yes-yes-fallback["Sorry, I didn't understand that.\n Please click either 'yes' or 'no'."] --> Asthma-yes-yes-yes-yes
+    Asthma-yes-yes-yes-yes-yes --> |Yes| Asthma-yes-yes-yes-yes-yes-yes{"Great. I was able to identify the form you needed.\n You will be able to download your form in Word or Adobe PDF format, or email it to yourself.\n Click #quot;Ok, Finish My Form!#quot; if you're ready, or\n #quot;Start Over#quot; if you want to go back to the beginning."}:::cust_ops
+    Asthma-yes-yes-yes-yes-yes --> |No| Asthma-yes-yes-yes-yes-yes-no["With the information you've given me,\n I'm not sure I have the right forms or answers for you.\nIf you still have legal questions, you can call \nIdaho Legal Aids free legal advice lines at\n208-746-7541"]
+    Asthma-yes-yes-yes-yes-yes --> |Fallback| Asthma-yes-yes-yes-yes-yes-fallback["Sorry, I didn't understand that.\n Please click either 'yes' or 'no'."] --> Asthma-yes-yes-yes-yes-yes
+    Asthma-yes-yes-yes-yes-yes-yes --> |Custom| Asthma-yes-yes-yes-yes-yes-yes-custom(("Nothing here")):::nothing
+    Asthma-yes-yes-yes-yes-yes-yes --> |Cancel| Asthma-yes-yes-yes-yes-yes-yes-cancel["Ok! Go ahead and describe the issue you would like help with."]
+
+    Bankruptcy --> BankruptcyRight{"It sounds like you're looking for\n information about bankruptcy.\n Is that correct?"}
+    BankruptcyRight --> |Yes| Bankruptcy-yes["...custom payload\n with options..."]:::cust_ops
+    BankruptcyRight --> |No| Bankruptcy-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    BankruptcyRight --> |Fallback| Bankruptcy-fallback["...custom payload\n with options..."]:::cust_ops
+    Covid --> CovidRight{"It sounds like you're looking for\n information either about\n legal issues related to the Covid-19 pandemic,\n or\n information about \nhow Idaho Legal Aid is operating during the pandemic.\n Is that correct?"}:::hasEntity
+    CovidRight --> |Yes| Covid-yes["..."]
+    CovidRight --> |No| Covid-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    CovidRight --> |Fallback| Covid-fallback["...custom payload\n with options..."]:::cust_ops
+    Criminal/Traffic --> Criminal/TrafficRight{"It sounds like you may have an issue with\n a criminal or traffic matter.\n Is that correct?"}:::hasEntity
+    Criminal/TrafficRight --> |Yes| Criminal/Traffic-yes["...custom payload\n with options..."]:::cust_ops
+    Criminal/TrafficRight --> |No| Criminal/Traffic-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    Criminal/TrafficRight --> |Fallback| Criminal/Traffic-fallback["...custom payload\n with options..."]:::cust_ops
+    Default_Fallback_Intent --> Default_Fallback_IntentR1["Hmmm....I'm not sure I understand.\n I need a little help sometimes.\n Can you say it in a different way? \nI understand the best when people ask me short questions\n or tell me one thing at a time\n instead of #quot;the whole story.#quot;"]
+    Default_Fallback_Intent --> Default_Fallback_IntentR2["For example,\n you can ask me #quot;What are the hours?#quot; \nand I will understand but if you say\n #quot;My landlord is trying to evict me. I am so glad your services are free. What hours are you open?#quot;\n I will get confused and not know what to say."]
+    Default_Fallback_Intent --> Default_Fallback_IntentR3["Hmmm....I'm not sure I understand.\n I need a little help sometimes.\n Can you say it in a different way? \nI understand the best when people ask me short questions\n or tell me one thing at a time\n instead of #quot;the whole story.#quot;"]
+    Default_Fallback_Intent --> Default_Fallback_IntentR4["Hmmm....I'm not sure I understand.\n I need a little help sometimes.\n Can you say it in a different way?"]
+    Default_Fallback_IntentR1 --> |Second Attempt| Default_Fallback_Intent-SecondAttempt["...custom payload\n with options..."]:::cust_ops
+    Default_Fallback_IntentR2 --> |Second Attempt| Default_Fallback_Intent-SecondAttempt["...custom payload\n with options..."]:::cust_ops
+    Default_Fallback_IntentR3 --> |Second Attempt| Default_Fallback_Intent-SecondAttempt["...custom payload\n with options..."]:::cust_ops
+    Default_Fallback_IntentR4 --> |Second Attempt| Default_Fallback_Intent-SecondAttempt["...custom payload\n with options..."]:::cust_ops
+    Default_Welcome_Intent --> Default_Welcome_Intent1["..."] 
+    Do_I_have_to_pay_a_retainer --> Do_I_have_to_pay_a_retainer1["Idaho Legal Aid Services\n will never charge for legal help.\n If we give you advice\n or \neven represent you in court,\n our help won't cost you anything."]
+    Domestic_Violence --> Domestic_ViolenceRight{"Based on keywords in your message,\n it sounds like you are looking for help with\n domestic violence, stalking, sexual assault or abuse.\n Is that correct?"}:::hasEntity
+    Domestic_ViolenceRight --> |Yes| Domestic_Violence-yes["...custom payload\n with options..."]:::cust_ops
+    Domestic_ViolenceRight --> |No| Domestic_Violence-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    Domestic_ViolenceRight --> |Fallback| Domestic_Violence-fallback["...custom payload\n with options..."]:::cust_ops
+    Family --> FamilyRight{"Based on keywords in your message,\n it sounds like you are looking for help with\n a family law issue.\n Is that correct? \n#quot;Family law#quot; includes issues like\n adoption, name changes, divorce, custody, visitation, child support,\n guardianships/conservatorships, and child neglect issues."}:::hasEntity
+    FamilyRight --> |Yes| Family-yes["...custom payload\n with options..."]:::cust_ops
+    FamilyRight --> |No| Family-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    FamilyRight --> |Fallback| Family-fallback["...custom payload\n with options..."]:::cust_ops
+    Family_Law_Forms --> Family_Law_FormsRight["N/A"]:::hasEntity
+    Family_Law_FormsRight --> Family_Law_FormsRightEXTRA[This has webhook fulfillment enabled]:::ff_webhook
+    Farmworkers --> FarmworkersRight{"It sounds like you have a legal issue related to\n agricultural or farm work.\n Is that correct?"}:::hasEntity
+    FarmworkersRight --> |Yes| Farmworkers-yes["...custom payload\n with options..."]:::cust_ops
+    FarmworkersRight --> |No| Farmworkers-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    FarmworkersRight --> |Fallback| Farmworkers-fallback["...custom payload\n with options..."]:::cust_ops
+    Gaurdian_Conservator_Forms --> Gaurdian_Conservator_FormsRight["N/A"]:::hasEntity
+    Gaurdian_Conservator_FormsRight --> Gaurdian_Conservator_FormsRightEXTRA[This has webhook fulfillment enabled]:::ff_webhook
+    Gaurdianships/Conservatorships --> Guardianships/ConservatorshipsRight{"Based on keywords in your message,\n it sounds like you are looking for help with\n a guardianship or conservatorship issue.\n Is that correct?"}:::hasEntity
+    Guardianships/ConservatorshipsRight --> |Yes| Guardianships/Conservatorships-yes["...custom payload\n with options..."]:::cust_ops
+    Guardianships/ConservatorshipsRight --> |No| Guardianships/Conservatorships-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    Guardianships/ConservatorshipsRight --> |Fallback| Guardianships/Conservatorships-fallback["...custom payload\n with options..."]:::cust_ops
+    health_and_benefits --> health_and_benefitsRight{"It sounds like you may have an issue with\n some kind of public benefit or healthcare.\n Examples of public benefits include\n medicare, medicaid, food stamps (or SNAP), unemployment benefits, and more.\n Does it sound like I correctly identified your issue?"}:::hasEntity
+    health_and_benefitsRight --> |Yes| health_and_benefits-yes["...custom payload\n with options..."]:::cust_ops
+    health_and_benefitsRight --> |No| health_and_benefits-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    health_and_benefitsRight --> |Fallback| health_and_benefits-fallback["...custom payload\n with options..."]:::cust_ops
+    Homeownership_and_foreclosure --> Homeownership_and_foreclosureRight{"It sounds like you're looking for information about\n homeownership and foreclosure.\n Is this correct?"}:::hasEntity
+    Homeownership_and_foreclosureRight --> |Yes| Homeownership_and_foreclosure-yes["...custom payload\n with options..."]:::cust_ops
+    Homeownership_and_foreclosureRight --> |No| Homeownership_and_foreclosure-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    Homeownership_and_foreclosureRight --> |Fallback| Homeownership_and_foreclosure-fallback["...custom payload\n with options..."]:::cust_ops
+    Housing_Forms --> Housing_FormsRight["N/A"]:::hasEntity
+    Housing_FormsRight --> Housing_FormsRightEXTRA[This has webhook fulfillment enabled]:::ff_webhook
+    How_to_Access --> How_to_AccessRight["N/A"]:::hasEntity
+    How_to_AccessRight --> How_to_AccessRightEXTRA[Custom]:::cust_ops
+    Immigration --> ImmigrationRight{"It sounds like you are looking for\n resources related to\n immigration.\n Is that correct?"}
+    ImmigrationRight --> |Yes| Immigration-yes["...custom payload\n with options..."]:::cust_ops
+    ImmigrationRight --> |No| Immigration-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    ImmigrationRight --> |Yes| Immigration-fallback["...custom payload\n with options..."]:::cust_ops
+    Juvenile --> JuvenileRight{"Based on keywords in your message,\n it sounds like you are looking for help with\n a  juvenile law issue.\n Is that correct?"}
+    JuvenileRight --> |Yes| Juvenile-yes["...custom payload\n with options..."]:::cust_ops
+    JuvenileRight --> |No| Juvenile-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    JuvenileRight --> |Fallback| Juvenile-fallback["...custom payload\n with options..."]:::cust_ops
+    LGBTQ --> LGBTQRight{"Based on keywords in your message,\n it sounds like you are looking for help with\n a LGBTQ law issue.\n Is that correct?"}
+    LGBTQRight --> |Yes| LGBTQ-yes["...custom payload\n with options..."]:::cust_ops
+    LGBTQRight --> |No| LGBTQ-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    LGBTQRight --> |Fallback| LGBTQ-fallback["...custom payload\n with options..."]:::cust_ops
+    money_and_debt --> money_and_debtRight{"It sounds like you may have issues with\n money, taxes, debt or identity theft.\n Does that sound right?"}:::hasEntity
+    money_and_debtRight --> |Yes| money_and_debt-yes["...custom payload\n with options..."]:::cust_ops
+    money_and_debtRight --> |No| money_and_debt-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    money_and_debtRight --> |Yes| money_and_debt-fallback["...custom payload\n with options..."]:::cust_ops
+    Native_American --> Native_AmericanRight{"It sounds like you may have an issue\n or question about\n laws related to Native Americans\n or\n tribal court.\n Is that correct?"}:::hasEntity
+    Native_AmericanRight --> |Yes| Native_American-yes["...custom payload\n with options..."]:::cust_ops
+    Native_AmericanRight --> |No| Native_American-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    Native_AmericanRight --> |Fallback| Native_American-fallback["...custom payload\n with options..."]:::cust_ops
+    Other_States --> Other_StatesRight["You mentioned $nonidahostate.\n Unfortunately we can only help with legal issues that are\n connected to Idaho in some way.\n To find a legal aid organization in your area,\n visit https://www.lsc.gov/what-legal-aid/find-legal-aid."]:::hasEntity
+    OtherLanguages --> OtherLanguagesRight["..."]:::hasEntity
+    Rental_Housing --> Rental_HousingRight{"Based on keywords I identified in your comment,\n it sounds like you may have\n a rental housing issue.\n Is this correct?"}:::hasEntity
+    Rental_HousingRight --> |Yes| Rental_Housing-yes{"Are you a landlord?"}:::hasEntity
+    Rental_HousingRight --> |No| Rental_Housing-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    Rental_HousingRight --> |Fallback| Rental_Housing-fallback["...custom payload\n with options..."]:::cust_ops
+    Rental_Housing-yes --> |Yes| Rental_Housing-yes-yes["I'm sorry, but\n Idaho Legal Aid Services\n does not assist landlords with\n rental housing legal matters."]
+    Rental_Housing-yes --> |No| Rental_Housing-yes-no{"...custom payload\n with options..."}:::cust_ops
+    Rental_Housing-yes-no --> |Domestic Violence| Rental_Housing-yes-no-dv{"...custom payload\n with options..."}:::cust_ops
+    Rental_Housing-yes-no --> |Reasonable Accomodations| Rental_Housing-yes-no-RA{"Great! I actually can help you put together\n request letter to your landlord\n asking that your disability be accommodated!\n There are 14 different types of accommodation requests I can help with.\n Click on one of the suggestions below\n that most closely aligns with what you want to request.\n If you aren't sure which one fits,\n you can type in what you need,\n and I will try to match one of the form types.\n I will ask some follow-up questions too\n to make sure the forms will be a good fit\n and help you make the right kind of request."}:::cust_ops
+    Rental_Housing-yes-no --> |Something Else| Rental_Housing-yes-no-something_else["...custom payload\n with options..."]:::cust_ops
+    Rental_Housing-yes-no --> |Fallback| Rental_Housing-yes-no-fallback["...custom payload\n with options..."]:::cust_ops --> Rental_Housing-yes-no
+    Rental_Housing-yes-no-dv --> |Yes| Rental_Housing-yes-no-dv-yes{"Ok great!\n The last thing I need to know to help direct you to the correct form\n is whether or not you live in or applied to\n some kind of government-assisted or public housing.\n\n If you live in a\n HUD Section 8, USDA Rural Development, or Section 42 Low-Income Housing Tax Credit Property,\n hold a section 8 voucher,\nor\n at any time while residing at your current residence\n you received a VAWA Lease Addendum,\n you live in government-assisted or public housing.\n Please click or tap #quot;government-assisted housing#quot; below.\n\n If you applied to\n and were turned down from\n a HUD Section 8, USDA Rural Development, or Section 42 Low-Income Housing Tax Credit property,\n please also click or tap #quot;government assisted housing#quot; below."}:::cust_ops
+    Rental_Housing-yes-no-dv --> |No| Rental_Housing-yes-no-dv-no["With the information you've given me,\n I'm not sure I have the right forms or answers for you.\nIf you still have legal questions, you can call \nIdaho Legal Aids free legal advice lines at\n208-746-7541"]
+    Rental_Housing-yes-no-dv --> |Fallback| Rental_Housing-yes-no-dv-fallback["Sorry, I didn't understand that.\n Please answer either yes or no."] --> Rental_Housing-yes-no-dv
+    Rental_Housing-yes-no-RA --> |Something Else| Rental_Housing-yes-no-RA-something_else["...custom payload\n with options..."]:::cust_ops
+    Rental_Housing-yes-no-dv-yes --> |VAWA| Rental_Housing-yes-no-dv-yes-vawa["Ok! I found the form you need to fill out.\n Please visit the link below."]:::formlink
+    Rental_Housing-yes-no-dv-yes --> |Non-VAWA| Rental_Housing-yes-no-dv-yes-nonvawa["Ok! I found the form you need to fill out.\n Please visit the link below\n to complete your "]:::formlink
+    Rental_Housing-yes-no-dv-yes --> |Fallback| Rental_Housing-yes-no-dv-yes-fallback["Sorry, I didn't understand that.\n Please tap or click on either\n #quot;government-assisted housing#quot; \nor\n #quot;other housing#quot;."]:::cust_ops --> Rental_Housing-yes-no-dv-yes
+    Seniors/Elder --> Seniors/ElderRight{"Based on keywords in your message,\n it sounds like you are looking for help with\n a senior/elder law issue.\n Is that correct?"}:::hasEntity
+    Seniors/ElderRight --> |Yes| Seniors/Elder-yes["...custom payload\n with options..."]:::cust_ops
+    Seniors/ElderRight --> |No| Seniors/Elder-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    Seniors/ElderRight --> |Fallback| Seniors/Elder-fallback["...custom payload\n with options..."]:::cust_ops
+    Small_Claims --> Small_ClaimsRight{"It sounds like you may have\n a small claims court issue,\n or\n you want to file a case in small claims court.\n Is that correct?"}:::hasEntity
+    Small_ClaimsRight --> |Yes| Small_Claims-yes["...custom payload\n with options..."]:::cust_ops
+    Small_ClaimsRight --> |No| Small_Claims-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    Small_ClaimsRight --> |Fallback| Small_Claims-fallback["...custom payload\n with options..."]:::cust_ops
+    Social_Security --> Social_SecurityRight{"It sounds like your legal issue is related to\n social security disability benefits.\n Is that"}:::hasEntity
+    Social_SecurityRight --> |Yes| Social_Security-yes["...custom payload\n with options..."]:::cust_ops
+    Social_SecurityRight --> |No| Social_Security-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    Social_SecurityRight --> |Fallback| Social_Security-fallback["...custom payload\n with options..."]:::cust_ops
+    Tell_me_about_Idaho_Legal_Aid_Services --> Tell_me_about_Idaho_Legal_Aid_ServicesRight["Idaho Legal Aid Services is \na nonprofit statewide organization dedicated to\n providing equal access to justice for low-income people\n through quality advocacy and education."]:::hasEntity
+    Utilities --> UtilitiesRight{"Based on keywords in your message,\n it sounds like you are looking for help with\n a utilities law issue.\n Is that correct?"}
+    UtilitiesRight --> |Yes| UtilitiesRight-yes["...custom payload\n with options..."]:::cust_ops
+    UtilitiesRight --> |No| UtilitiesRight-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    UtilitiesRight --> |Fallback| UtilitiesRight-fallback["...custom payload\n with options..."]:::cust_ops
+    Veterans --> VeteransRight{"It sounds like you are looking for help with a legal issue related to\n your status as a veteran.\n Is that correct?"}:::hasEntity
+    VeteransRight --> |Yes| Veterans-yes["...custom payload\n with options..."]:::cust_ops
+    VeteransRight --> |No| Veterans-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    VeteransRight --> |Fallback| Veterans-fallback["...custom payload\n with options..."]:::cust_ops
+    Voting_Rights --> Voting_RightsRight{"Based on keywords in your message,\n it sounds like you are looking for help with\n a voting rights issue.\n Is that correct?"}
+    Voting_RightsRight --> |Yes| Voting_Rights-yes["...custom payload\n with options..."]:::cust_ops
+    Voting_RightsRight --> |No| Voting_Rights-no["Sorry about that. \n Can you describe your issue in a different way?"]
+    Voting_RightsRight --> |Fallback| Voting_Rights-fallback["...custom payload\n with options..."]:::cust_ops
+	WantApplicationInfo --> WantApplicationInfoRight(("nothing here")):::nothing
+	WantApplicationInfoRight --> |Yes| WantApplicationInfo-yes["...custom payload\n with options..."]:::cust_ops
+    WantApplicationInfoRight --> |No| WantApplicationInfo-no["Ok, if you have any more questions, go ahead and ask.\n I am here to help!"]
+    What_Issues_and_Who_Help --> What_Issues_and_Who_HelpRight["We are a legal aid program\n that helps Idahoans with low incomes\n handle many different kinds of civil legal issues!\n We may be able to help with issues related to\n rental housing or housing issues for homeowners like foreclosure.\n We also help with problems or questions related to\n benefits like SNAP (food stamps), TANF or SSI, and issues with debt collectors.\n We also have special programs for\n survivors or victims of domestic violence or sexual assault,\n migrant farmworkers, Native Americans, juveniles, and veterans.\n\n You can ask me questions about any of these kinds of issues\n or just describe what kind of issue you're having\n and I will try to help."]:::hasEntity
+    WillsTrustsEstates --> WillsTrustsEstatesRight{"It sounds like your legal issue is related to\n probate issues, wills, trusts, or estates.\n Is that correct?"}:::hasEntity
+    WillsTrustsEstatesRight --> |Yes| WillsTrustsEstates-yes["...custom payload\n with options..."]:::cust_ops
+    WillsTrustsEstatesRight --> |No| WillsTrustsEstates-no["Sorry about that.\n Can you describe your issue in a different way?"]
+    WillsTrustsEstatesRight --> |Fallback| WillsTrustsEstates-fallback["...custom payload\n with options..."]:::cust_ops
+    Work --> WorkRight{"It sounds like your legal issue is related to\n workers' rights or employment law.\n Is that correct?"}
+    WorkRight --> |Yes| Work-yes["...custom payload\n with options..."]:::cust_ops
+    WorkRight --> |No| Work-no["Sorry about that.\n Can you describe your issue in a different way?"]
+    WorkRight --> |Fallback| Work-fallback["...custom payload\n with options..."]:::cust_ops
+
+
+
+
+	classDef hasEntity fill:#ffc
+    classDef cust_ops fill:#6fc
+    classDef ff_webhook fill:#0cf
+    classDef formlink fill:#fc9
+    classDef nothing fill:#f00
